@@ -1,0 +1,469 @@
+/* ===================================
+   M&H ASSOCIATES FZE LLC - Responsive Design
+   =================================== */
+
+/* Mobile First Approach */
+
+/* ===================================
+   Mobile Styles (320px - 767px)
+   =================================== */
+
+@media (max-width: 767px) {
+  /* Typography Adjustments */
+  h1 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  h2 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  h3 {
+    font-size: var(--font-size-xl);
+  }
+  
+  .hero h1 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .hero p {
+    font-size: var(--font-size-lg);
+  }
+  
+  /* Container Adjustments */
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  /* Navigation Mobile */
+  .navbar-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    box-shadow: var(--shadow-lg);
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    gap: var(--spacing-md);
+  }
+  
+  .navbar-nav.active {
+    display: flex;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: calc(var(--spacing-2xl) * 2) 0 var(--spacing-2xl);
+    margin-top: 70px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Services Grid */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .service-card {
+    padding: var(--spacing-xl);
+  }
+  
+  /* Contact Section */
+  .contact-info {
+    padding: var(--spacing-xl);
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .contact-icon {
+    margin-right: 0;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  /* Form Adjustments */
+  .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Button Adjustments */
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Grid Adjustments */
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Section Padding */
+  .section {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .section-sm {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .section-lg {
+    padding: var(--spacing-2xl) 0;
+  }
+}
+
+/* ===================================
+   Tablet Styles (768px - 1023px)
+   =================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Typography Adjustments */
+  h1 {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .hero h1 {
+    font-size: var(--font-size-4xl);
+  }
+  
+  /* Services Grid */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Grid Adjustments */
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Hero Buttons */
+  .hero-buttons {
+    gap: var(--spacing-md);
+  }
+  
+  .hero-buttons .btn {
+    flex: 1;
+  }
+}
+
+/* ===================================
+   Desktop Styles (1024px - 1439px)
+   =================================== */
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Services Grid */
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Grid Adjustments */
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===================================
+   Large Desktop Styles (1440px+)
+   =================================== */
+
+@media (min-width: 1440px) {
+  /* Container Adjustments */
+  .container {
+    max-width: 1400px;
+  }
+  
+  /* Services Grid */
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* Typography Scale Up */
+  h1 {
+    font-size: var(--font-size-5xl);
+  }
+  
+  .hero h1 {
+    font-size: var(--font-size-5xl);
+  }
+  
+  /* Section Padding */
+  .section {
+    padding: calc(var(--spacing-3xl) * 1.5) 0;
+  }
+}
+
+/* ===================================
+   Landscape Mobile Adjustments
+   =================================== */
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .hero {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .hero h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .hero p {
+    font-size: var(--font-size-base);
+  }
+  
+  .section {
+    padding: var(--spacing-xl) 0;
+  }
+}
+
+/* ===================================
+   High DPI Displays
+   =================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Ensure crisp images and icons */
+  .service-icon,
+  .contact-icon {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+
+@media print {
+  .navbar,
+  .hero-buttons,
+  .mobile-menu-btn,
+  .btn {
+    display: none !important;
+  }
+  
+  .hero {
+    background: none !important;
+    color: var(--dark-blue) !important;
+    margin-top: 0 !important;
+    padding: var(--spacing-lg) 0 !important;
+  }
+  
+  .hero h1,
+  .hero p {
+    color: var(--dark-blue) !important;
+  }
+  
+  .service-card {
+    box-shadow: none !important;
+    border: 1px solid var(--border-color) !important;
+  }
+  
+  .section {
+    padding: var(--spacing-lg) 0 !important;
+  }
+  
+  a {
+    color: var(--dark-blue) !important;
+    text-decoration: underline !important;
+  }
+  
+  .footer {
+    background: none !important;
+    color: var(--dark-blue) !important;
+  }
+}
+
+/* ===================================
+   Accessibility Improvements
+   =================================== */
+
+/* Focus styles for keyboard navigation */
+@media (prefers-reduced-motion: no-preference) {
+  .btn:focus,
+  .nav-link:focus,
+  .form-input:focus,
+  .form-textarea:focus,
+  .form-select:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-blue: #000080;
+    --secondary-blue: #0000ff;
+    --dark-blue: #000000;
+    --border-color: #000000;
+  }
+  
+  .btn {
+    border: 2px solid currentColor;
+  }
+  
+  .service-card,
+  .card {
+    border: 2px solid var(--border-color);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .hero::before {
+    animation: none !important;
+  }
+  
+  .service-card:hover,
+  .card:hover,
+  .btn:hover {
+    transform: none !important;
+  }
+}
+
+/* ===================================
+   Dark Mode Support (Future Enhancement)
+   =================================== */
+
+@media (prefers-color-scheme: dark) {
+  /* This can be implemented later for dark mode support */
+  /* :root {
+    --white: #1f2937;
+    --dark-blue: #f9fafb;
+    --light-gray: #374151;
+    --border-color: #4b5563;
+  } */
+}
+
+/* ===================================
+   Specific Device Optimizations
+   =================================== */
+
+/* iPhone SE and small phones */
+@media (max-width: 375px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .hero h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .hero p {
+    font-size: var(--font-size-base);
+  }
+  
+  .service-card {
+    padding: var(--spacing-lg);
+  }
+}
+
+/* iPad Pro */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero h1 {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+/* ===================================
+   Touch Device Optimizations
+   =================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets for mobile devices */
+  .btn {
+    min-height: 48px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+  }
+  
+  .nav-link {
+    padding: var(--spacing-md);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .mobile-menu-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .service-card:hover,
+  .card:hover,
+  .btn:hover {
+    transform: none;
+  }
+}
+
+/* ===================================
+   Performance Optimizations
+   =================================== */
+
+/* Optimize for devices with limited resources */
+@media (max-width: 767px) {
+  /* Reduce shadows and effects on mobile for better performance */
+  .service-card,
+  .card {
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .btn {
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .btn:hover {
+    box-shadow: var(--shadow-sm);
+  }
+} 
