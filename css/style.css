@@ -673,6 +673,24 @@ a:hover {
   color: rgba(255, 255, 255, 0.6);
 }
 
+.developer-credits {
+  margin-top: var(--spacing-md);
+  font-size: var(--font-size-xs);
+  opacity: 0.8;
+}
+
+.developer-credits a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.developer-credits a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
 /* ===================================
    Utility Classes
    =================================== */
