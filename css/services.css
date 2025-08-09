@@ -1,0 +1,107 @@
+/* Service Details Styles */
+.service-details {
+    padding: var(--spacing-xl) 0;
+}
+
+.service-detail-item {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.service-detail-item h3 {
+    color: var(--primary-blue);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: var(--spacing-sm);
+}
+
+.service-detail-item h4 {
+    color: var(--dark-blue);
+    font-size: var(--font-size-xl);
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.service-detail-content {
+    color: var(--dark-blue);
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0;
+}
+
+.service-features li {
+    position: relative;
+    padding-left: var(--spacing-xl);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.service-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: bold;
+}
+
+/* Service Cards Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.service-card {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.service-icon i {
+    font-size: var(--font-size-2xl);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .service-detail-item {
+        padding: var(--spacing-lg);
+    }
+
+    .service-details {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .service-detail-item h3 {
+        font-size: var(--font-size-xl);
+    }
+
+    .service-detail-item h4 {
+        font-size: var(--font-size-lg);
+    }
+}

@@ -1,19 +1,35 @@
 /* ===================================
-   M&H ASSOCIATES FZE LLC - Main Styles
+   M&H ASSOCIATES FZE LLC - Modern Styles
    =================================== */
 
-/* CSS Custom Properties (Design System) */
+/* CSS Custom Properties (Modern Design System) */
 :root {
-  /* Color Palette - Derived from Business Card */
-  --primary-blue: #1e3a8a;      /* Main brand color */
+  /* Modern Color Palette */
+  --primary-blue: #2563eb;      /* Main brand color */
+  --primary-dark: #1e40af;      /* Darker shade */
+  --primary-light: #60a5fa;     /* Lighter shade */
   --secondary-blue: #3b82f6;    /* Accent and links */
   --dark-blue: #1f2937;         /* Headers and text */
   --white: #ffffff;             /* Background and text */
-  --light-gray: #f3f4f6;        /* Secondary background */
-  --accent: #fbbf24;           /* Highlights and CTAs */
+  --light-gray: #f8fafc;        /* Secondary background */
+  --accent: #f59e0b;           /* Highlights and CTAs */
+  --accent-light: #fcd34d;     /* Light accent */
   --success: #10b981;          /* Success states */
   --error: #ef4444;            /* Error states */
-  --border-color: #e5e7eb;     /* Borders and dividers */
+  --border-color: #e2e8f0;     /* Borders and dividers */
+  
+  /* Gradient Definitions */
+  --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  --gradient-light: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+  
+  /* Shadow Definitions */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --shadow-colored: 0 10px 15px -3px var(--primary-light), 0 4px 6px -4px var(--primary-light);
   
   /* Typography Scale */
   --font-size-xs: 0.75rem;     /* 12px */
