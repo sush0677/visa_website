@@ -143,22 +143,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Intersection Observer for animations
+    // Modern Scroll Animations
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -80px 0px'
     };
     
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
+                entry.target.classList.add('visible');
+                // Add staggered animation delays
+                const siblings = Array.from(entry.target.parentElement.children);
+                const index = siblings.indexOf(entry.target);
+                entry.target.style.animationDelay = `${index * 0.1}s`;
             }
         });
     }, observerOptions);
     
-    // Observe elements for animation
-    document.querySelectorAll('.service-card, .contact-item, .footer-section').forEach(el => {
+    // Observe elements for modern animations
+    document.querySelectorAll('.fade-in-on-scroll, .scale-in-on-scroll, .slide-in-left, .slide-in-right, .service-card').forEach(el => {
         observer.observe(el);
     });
 
@@ -179,18 +183,75 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===================================
-// Additional Modern Features
+// Modern Interactive Features
 // ===================================
 
-// Parallax effect for hero section
-window.addEventListener('scroll', function() {
+// Enhanced Parallax with performance optimization
+let ticking = false;
+
+function updateParallax() {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
-    if (hero) {
-        const rate = scrolled * -0.5;
+    
+    if (hero && window.innerWidth > 768) {
+        const rate = scrolled * -0.3;
         hero.style.transform = `translateY(${rate}px)`;
     }
+    
+    ticking = false;
+}
+
+window.addEventListener('scroll', function() {
+    if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+    }
 });
+
+// Modern Button Click Effects
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+});
+
+// Smooth Page Transitions
+function addPageTransitions() {
+    const links = document.querySelectorAll('a[href]:not([href^="#"]):not([href^="mailto"]):not([href^="tel"])');
+    
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && !href.includes('#') && !href.startsWith('http')) {
+                e.preventDefault();
+                document.body.style.opacity = '0';
+                document.body.style.transition = 'opacity 0.3s ease';
+                
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            }
+        });
+    });
+}
+
+// Initialize page transitions
+addPageTransitions();
 
 // Typing effect for hero title (optional)
 function typeWriter(element, text, speed = 100) {
@@ -208,13 +269,70 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-// Initialize typing effect if needed
+// Modern Loading Animation
+function initializeLoadingAnimation() {
+    document.body.style.opacity = '0';
+    
+    window.addEventListener('load', function() {
+        document.body.style.transition = 'opacity 0.5s ease';
+        document.body.style.opacity = '1';
+        
+        // Trigger hero animations
+        setTimeout(() => {
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.classList.add('visible');
+            }
+        }, 200);
+    });
+}
+
+// Enhanced Mobile Experience
+function enhanceMobileExperience() {
+    // Add touch feedback for mobile devices
+    if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+        
+        // Add touch ripple effects
+        document.querySelectorAll('.service-card, .card, .btn').forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.classList.add('touched');
+            });
+            
+            element.addEventListener('touchend', function() {
+                setTimeout(() => {
+                    this.classList.remove('touched');
+                }, 150);
+            });
+        });
+    }
+}
+
+// Initialize modern features
 document.addEventListener('DOMContentLoaded', function() {
+    initializeLoadingAnimation();
+    enhanceMobileExperience();
+    
+    // Optional typing effect for desktop
     const heroTitle = document.querySelector('#hero-title');
     if (heroTitle && window.innerWidth > 768) {
         const originalText = heroTitle.textContent;
-        setTimeout(() => {
-            typeWriter(heroTitle, originalText, 50);
-        }, 1000);
+        // Disabled by default for better UX
+        // setTimeout(() => {
+        //     typeWriter(heroTitle, originalText, 50);
+        // }, 1000);
     }
-}); 
+});
+
+// Performance optimization: Debounce scroll events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+} 
